@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib>
 
 /**
  * main - Alphabet in both upper and lower case
