@@ -8,20 +8,15 @@
  */
 int main(void)
 {
-	int ch = 'a';
-	int CH = 'A';
+	char ch;
 
-	while (ch <= 'z')
-	{
+	for (ch = 'a'; ch <= 'z'; ch++)
 		putchar(ch);
-		ch++;
-	}
-	while (CH <= 'Z')
-	{
-		putchar(CH);
-		CH++;
-	}
+
+	for (ch = 'A'; ch <= 'Z'; ch++)
+		putchar(ch);
 
 	putchar('\n');
+
 	return (0);
 }
