@@ -3,11 +3,11 @@
 #include <stdio.h>
 
 /**
- * main - This determines if a number is positive, negative or zero.
+ * main - This determines if a number is positive, negative or zero
  *
  * Return: Always 0 (Success)
  */
-in main(void)
+int main(void)
 {
 	int n;
 
@@ -19,7 +19,7 @@ in main(void)
 	}
 	else if (n == 0)
 	{
-		printf("%d is zero\n, n);
+		printf("%d is zero\n", n);
 	}
 	else
 	{
