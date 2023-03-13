@@ -1,49 +1,50 @@
-#include "main.h"
+#include "notrebloh.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * argstostr - concatenates all the arguments of your program
- * @ac: arguments count
- * @av: arguments vector
- *
- * Returns: a pointer to a new string, or NULL if it fails
+ * *argstostr - convert arguments on command line to strings
+ * @ac: int type
+ * @av: pointer to array
+ * Return: arguments as strings
  */
+
 char *argstostr(int ac, char **av)
 {
-	char *str, *s;
-	int i, j, k, len = 0;
+	int size, count, count1, count2 = 0;
+	char *ptr;
 
 	if (ac == 0 || av == NULL)
-		return (NULL);
-
-	for (i = 0; i < ac; i++)
 	{
-		s = av[i];
-		j = 0;
-
-		while (s[j++])
-			len++;
-		len++;
+		return (NULL);
 	}
 
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (str == NULL)
-		return (NULL);
-
-	for (i = 0, j = 0; i < ac && j < len; i++)
+	for (count = 0; count < ac; count++)
 	{
-		s = av[i];
-		k = 0;
-
-		while (s[k])
+		for (count1 = 0; av[count][count1] != '\0'; count1++)
 		{
-			str[j] = s[k];
-			k++;
-			j++;
+			size += 1;
 		}
-		str[j++] = '\n';
+		size += 1;
 	}
-	str[j] = '\0';
+	size += 1;
 
-	return (str);
+	ptr = malloc(sizeof(char) * size);
+	if (ptr == NULL)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	for (count = 0; count < ac; count++)
+	{
+		for (count1 = 0; av[count][count1] != '\0'; count1++)
+		{
+			ptr[count2] = av[count][count1];
+			count2++;
+		}
+		ptr[count2] = '\n';
+		count2++;
+	}
+	ptr[count2] = '\0';
+	return (ptr);
 }
